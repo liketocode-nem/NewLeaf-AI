@@ -29,10 +29,25 @@ body {
   background-color: var(--primary);
 }
 
+.after\:primary-bg {
+&::after {
+background-color: var(--primary);
+}
+}
 .primary-underline {
   text-decoration-color: var(--primary);
-  text-decoration-thickness: 6px;
 }
+
+.bento {
+  transition: box-shadow 0.3s ease-out;
+}
+
+.bento:hover {
+    box-shadow: 0 0 13px 2px #2be256; /* green glow */
+    transform: scale(1.03);
+
+}
+
 
 @font-face {
   font-family: "ClashDisplay";
