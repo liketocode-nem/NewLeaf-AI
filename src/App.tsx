@@ -7,6 +7,9 @@ import type { LenisRef } from "lenis/react";
 import { cancelFrame, frame } from "motion/react";
 import { useInView } from "motion/react";
 import { useEffect, useRef, useState } from "react";
+import { SiOpenai } from "react-icons/si";
+import { RiGeminiFill } from "react-icons/ri";
+import { SiClaude } from "react-icons/si";
 import {
   FaSalesforce,
   FaHubspot,
@@ -22,7 +25,16 @@ import { HiLightBulb } from "react-icons/hi";
 import { LuTextCursor } from "react-icons/lu";
 import { BsChatLeftFill } from "react-icons/bs";
 import ScrollReveal from "./components/ScrollReveal";
-import { log } from "console";
+
+import {
+  InputGroup,
+  InputGroupAddon,
+  InputGroupButton,
+  InputGroupInput,
+  InputGroupText,
+  InputGroupTextarea,
+} from "@/components/ui/input-group";
+import { Briefcase, MailIcon, User } from "lucide-react";
 
 const techLogos = [
   { node: <FaSalesforce />, title: "Salesforce" },
@@ -34,7 +46,9 @@ const techLogos = [
   { node: <SiGooglecalendar />, title: "GoogleCalender" },
   { node: <SiFirebase />, title: "Firebase" },
   { node: <SiGmail />, title: "Gmail" },
-  { node: <FaGoogleDrive />, title: "GoogleDrive  " },
+  { node: <SiOpenai />, title: "Openai" },
+  { node: <RiGeminiFill />, title: "Gemini" },
+  { node: <SiClaude />, title: "Claud" },
 ];
 
 function App() {
@@ -232,7 +246,7 @@ function App() {
         enableBlur={true}
         baseRotation={3}
         blurStrength={70}
-        containerClassName="text-white m-auto w-300 h-200"
+        containerClassName="text-white m-auto w-300 h-120"
       >
         We integrate with{" "}
         <span className="primary-underline underline">
@@ -244,10 +258,113 @@ function App() {
         .
       </ScrollReveal>
       <section
-        className="h-screen w-screen"
+        className="w-screen h-200 flex justify-center"
         ref={testimonialRef}
         id="testimonial"
-      ></section>
+      >
+        <div className="bg-zinc-950 text-white poppins xl:h-120 xl:flex xl:justify-center xl:gap-16 ">
+          <div className="xl:w-150 flex flex-col xl:justify-center text-9xl items-center">
+            {/* <FaShopify />
+            <SiGmail />
+            <SiN8N />
+            <RiGeminiFill /> */}
+            <img src="asset.svg" width={250} alt="" />
+            <p className="text-white font-regular xl:text-lg text-center">
+              Aaron Saks <br />
+              <span className="text-zinc-300">CEO Green Paper Products</span>
+            </p>
+          </div>
+          <div className="xl:w-150 h-full xl:flex xl:justify-start xl:items-center">
+            <div>
+              <h2 className="xl:text-7xl xl:mb-6 underline primary-underline font-medium clash ">
+                Testimonial
+              </h2>
+              <p className="text-white font-regular xl:text-lg/tight">
+                NewLeafAI creates AI-powered automation that aim to eliminate
+                time consuming, annoying, and expensive tasks so you can stop
+                focusing on the small stuff and get back to what matters most -
+                growing your business. <br />
+                <br />
+                From creating a specialized AI model that can help costumers via
+                email and a website chat bot, to automating your outreach and
+                follow-up emails, NewLeafAI creates custom solutions that fit
+                your specific needs.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section
+        className="w-screen h-150   text-white flex justify-center "
+        ref={aboutRef}
+        id="about"
+      >
+        <div className="w-230 text-center">
+          <h2 className="xl:text-7xl xl:mb-6 underline primary-underline font-medium clash">
+            About
+          </h2>
+          <p className="text-2xl/relaxed">
+            NextLeafAI was started by sophomore Nathan Miller. Since he learned
+            to code in 5th grade, Nathan has always been passionate about
+            software engineering and development. In his early programming
+            years, he experimented with machine learning, but his AI interests
+            got sparked when he first used ChatGPT in 2021, and was amazed.
+            Since then, he has followed and learned what is possible with AI,
+            learning how to create complex automation for himself, and now for
+            others.
+          </p>
+        </div>
+      </section>
+      <section
+        className="w-screen h-160 text-white flex justify-center "
+        ref={contactRef}
+        id="contact"
+      >
+        <div className="w-100 text-center">
+          <h2 className="xl:text-7xl xl:mb-6 underline primary-underline font-medium clash">
+            Contact
+          </h2>
+
+          <div className="grid gap-4">
+            <InputGroup>
+              <InputGroupInput placeholder="name" />
+              <InputGroupAddon>
+                <User />
+              </InputGroupAddon>
+            </InputGroup>
+            <InputGroup>
+              <InputGroupInput placeholder="company" />
+              <InputGroupAddon>
+                <Briefcase />
+              </InputGroupAddon>
+            </InputGroup>
+            <InputGroup>
+              <InputGroupInput placeholder="email" />
+              <InputGroupAddon>
+                <MailIcon />
+              </InputGroupAddon>
+            </InputGroup>
+            <InputGroup>
+              <InputGroupTextarea placeholder="message" />
+              <InputGroupAddon align="block-end">
+                <InputGroupButton
+                  className="ml-auto primary-bg text-zinc-950"
+                  size="sm"
+                  variant="default"
+                >
+                  Send
+                </InputGroupButton>
+              </InputGroupAddon>
+            </InputGroup>
+            <p className="text-start">
+              To:{" "}
+              <a href="mailto:nextleafai@gmail.com">
+                <span className="primary">nextleafai</span>@gmail.com
+              </a>
+            </p>
+          </div>
+        </div>
+      </section>
     </>
   );
 }
