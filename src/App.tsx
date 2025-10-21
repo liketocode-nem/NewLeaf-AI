@@ -226,7 +226,11 @@ function App() {
         </div>
       </div>
       <div
-        style={{ height: "200px", position: "relative", overflow: "hidden" }}
+        style={{
+          position: "relative",
+          overflow: "hidden",
+          marginBottom: "10rem",
+        }}
         className="xl:mt-48"
       >
         <IconContext.Provider value={{ color: "white" }}>
@@ -246,7 +250,7 @@ function App() {
         enableBlur={true}
         baseRotation={3}
         blurStrength={70}
-        containerClassName="text-white m-auto w-300 h-120"
+        containerClassName="text-white m-auto w-300 mb-[10rem]"
       >
         We integrate with{" "}
         <span className="primary-underline underline">
@@ -258,16 +262,13 @@ function App() {
         .
       </ScrollReveal>
       <section
-        className="w-screen h-200 flex justify-center"
+        className="w-screen mb-[10rem] flex justify-center"
         ref={testimonialRef}
         id="testimonial"
       >
         <div className="bg-zinc-950 text-white poppins xl:h-120 xl:flex xl:justify-center xl:gap-16 ">
           <div className="xl:w-150 flex flex-col xl:justify-center text-9xl items-center">
-            {/* <FaShopify />
-            <SiGmail />
-            <SiN8N />
-            <RiGeminiFill /> */}
+            {/* TODO: make image box not have extra space */}
             <img src="asset.svg" width={250} alt="" />
             <p className="text-white font-regular xl:text-lg text-center">
               Aaron Saks <br />
@@ -295,7 +296,7 @@ function App() {
         </div>
       </section>
       <section
-        className="w-screen h-150   text-white flex justify-center "
+        className="w-screen mb-[10rem] text-white flex justify-center "
         ref={aboutRef}
         id="about"
       >
@@ -316,7 +317,7 @@ function App() {
         </div>
       </section>
       <section
-        className="w-screen h-160 text-white flex justify-center "
+        className="w-screen pb-[10rem] text-white flex justify-center "
         ref={contactRef}
         id="contact"
       >
@@ -324,7 +325,7 @@ function App() {
           <h2 className="xl:text-7xl xl:mb-6 underline primary-underline font-medium clash">
             Contact
           </h2>
-
+          <p className="text-lg italic m-6">Lets talk!</p>
           <div className="grid gap-4">
             <InputGroup>
               <InputGroupInput placeholder="name" />
@@ -348,7 +349,7 @@ function App() {
               <InputGroupTextarea placeholder="message" />
               <InputGroupAddon align="block-end">
                 <InputGroupButton
-                  className="ml-auto primary-bg text-zinc-950"
+                  className="ml-auto primary-bg text-zinc-950  hover:!bg-green-500 hover:scale-105"
                   size="sm"
                   variant="default"
                 >
@@ -359,7 +360,7 @@ function App() {
             <p className="text-start">
               To:{" "}
               <a href="mailto:nextleafai@gmail.com">
-                <span className="primary">nextleafai</span>@gmail.com
+                <span className="primary underline">nextleafai</span>@gmail.com
               </a>
             </p>
           </div>
