@@ -9,8 +9,12 @@
   color: black;
 }
 
+html,
 body {
   overflow-x: hidden;
+}
+body {
+  position: relative;
 }
 
 .clash {
@@ -30,9 +34,9 @@ body {
 }
 
 .after\:primary-bg {
-&::after {
-background-color: var(--primary);
-}
+  &::after {
+    background-color: var(--primary);
+  }
 }
 .primary-underline {
   text-decoration-color: var(--primary);
@@ -43,11 +47,9 @@ background-color: var(--primary);
 }
 
 .bento:hover {
-    box-shadow: 0 0 13px 2px #2be256; /* green glow */
-    transform: scale(1.03);
-
+  box-shadow: 0 0 13px 2px #2be256; /* green glow */
+  transform: scale(1.03);
 }
-
 
 @font-face {
   font-family: "ClashDisplay";

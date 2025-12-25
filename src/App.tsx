@@ -16,15 +16,15 @@ import {
   FaShopify,
   FaMailchimp,
   FaSlack,
+  FaClock,
 } from "react-icons/fa6";
+import { FaRedo } from "react-icons/fa";
 import { SiN8N, SiGooglecalendar, SiFirebase, SiGmail } from "react-icons/si";
-import { FaGoogleDrive } from "react-icons/fa6";
+import { FaRobot } from "react-icons/fa6";
 import LogoLoop from "./components/LogoLoop";
 import { IconContext } from "react-icons";
-import { HiLightBulb } from "react-icons/hi";
-import { LuTextCursor } from "react-icons/lu";
-import { BsChatLeftFill } from "react-icons/bs";
 import ScrollReveal from "./components/ScrollReveal";
+import { IoPerson } from "react-icons/io5";
 
 import {
   InputGroup,
@@ -95,14 +95,16 @@ function App() {
 
   return (
     <>
+      <ReactLenis root options={{ autoRaf: false }} ref={lenisRef} />
+
       <nav
-        className={`w-full xl:h-24 fixed xl:top-.5 left-0 flex justify-center items-center xl:p-10 z-50 clash`}
+        className={`w-full xl:h-24 fixed left-0 flex justify-center items-center xl:p-10 p-5 z-50 clash`}
       >
-        <div className="py-4 px-5 w-6/12 xl:text-xl text-white flex justify-between items-center font-black bg-white/10 rounded-4xl backdrop-blur-sm border border-white/35 shadow-lg">
-          <a href="#hero" className="xl:text-2xl">
+        <div className="py-4 px-5 xl:w-6/12 lg:w-7/12 md:w-8/12 w-full text-xs lg:text-xl md:text-base  sm:mt-6 text-white flex justify-between items-center font-black bg-white/10 rounded-4xl backdrop-blur-sm border border-white/35 shadow-lg">
+          <a href="#hero" className="xl:text-2xl mr-2">
             NewLeaf/AI
           </a>
-          <div className="flex gap-8 ">
+          <div className="flex md:gap-8 gap-2">
             <a
               href="#services"
               className={`font-normal ${
@@ -147,8 +149,6 @@ function App() {
         </div>
       </nav>
 
-      <ReactLenis root options={{ autoRaf: false }} ref={lenisRef} />
-
       <div
         className="w-full h-screen bg-zinc-950 relative"
         ref={heroRef}
@@ -161,12 +161,12 @@ function App() {
           speed={0.3}
         />
         <LayoutGroup>
-          <div className="flex justify-center items-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-screen ">
+          <div className="flex justify-center items-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-screen">
             <motion.h1
               layout
-              className="xl:text-8xl font-medium text-white clash relative"
+              className="xl:text-8xl lg:text-7xl md:text-6xl text-[7vw] font-medium text-white clash relatived p-5 "
             >
-              Grow your business with <br /> streamlined{" "}
+              Grow your business with{"          "} <br /> streamlined{" "}
               <RotatingText
                 texts={[
                   "Automation",
@@ -192,35 +192,80 @@ function App() {
         </LayoutGroup>
       </div>
       <div
-        className="w-full flex justify-center xl:p-8"
+        className="w-full flex justify-center xl:px-8 lg:px-44 px-10 md:scroll-mt-50 md:h-auto h-screen py-1"
         ref={servicesRef}
         id="services"
       >
-        <div className="bg-zinc-950 text-white poppins xl:h-120 xl:flex xl:justify-center xl:gap-16 ">
-          <div className="xl:w-150 flex flex-col xl:justify-center ">
+        <div className="bg-zinc-950 text-white poppins md:h-120 flex justify-center gap-16 ">
+          <div className="xl:w-150 lg:w-110 md:w-85 flex flex-col justify-center ">
             <div>
-              <h2 className="xl:text-7xl xl:mb-6 underline primary-underline font-medium clash ">
+              <h2 className="lg:text-7xl md:text-6xl text-5xl mb-6 underline primary-underline font-medium clash md:text-start text-center ">
                 Services
               </h2>
-              <p className="text-white font-regular xl:text-lg/tight">
-                NewLeafAI creates AI-powered automation that aim to eliminate
-                time consuming, annoying, and expensive tasks so you can stop
-                focusing on the small stuff and get back to what matters most -
-                growing your business. <br />
-                <br />
-                From creating a specialized AI model that can help costumers via
-                email and a website chat bot, to automating your outreach and
-                follow-up emails, NewLeafAI creates custom solutions that fit
-                your specific needs.
+              <p className="text-white font-regular lg:text-lg/tight md:text-start text-center ">
+                NewLeafAI creates AI-powered automation that helps eliminate
+                time-consuming, repetitive tasks so you can stop focusing on the
+                small stuff and get back to what matters most — growing your
+                business.
               </p>
             </div>
           </div>
-          <div className="xl:w-150 h-full xl:flex xl:justify-start xl:items-center">
-            <div className="xl:w-full xl:h-full  xl:grid xl:grid-cols-2 xl:grid-rows-2   xl:gap-4">
-              <div className="border border-zinc-800 rounded-3xl w-full h-full bento"></div>
-              <div className="border border-zinc-800 rounded-3xl w-full h-full bento"></div>
-              <div className="border border-zinc-800 rounded-3xl w-full h-full bento"></div>
-              <div className="border border-zinc-800 rounded-3xl w-full h-full bento"></div>
+          {/*bento container*/}
+          <div className="xl:w-150 lg:w-110 md:w-85 h-full md:flex md:justify-start md:items-center hidden">
+            {/*grid maker*/}
+            <div className="md:w-full md:h-full md:grid md:grid-cols-2 md:grid-rows-2 md:gap-4">
+              <div className="border border-zinc-800 rounded-3xl w-full h-full bento">
+                <div className="pl-7 pr-2 py-5">
+                  <h2 className="xl:text-3xl lg:text-2xl font-medium clash flex items-center">
+                    <FaRobot className="inline mr-2 primary" />
+                    Chatbots
+                  </h2>
+                  <ul className="xl:text-base lg:text-sm text-xs font-light list-disc">
+                    <li className="my-2">Website chatbot to retain visitors</li>
+                    <li className="my-2">
+                      Internal chatbot to assist employees
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div className="border border-zinc-800 rounded-3xl w-full h-full bento">
+                <div className="pl-7 pr-2 py-5">
+                  <h2 className="xl:text-3xl lg:text-2xl font-medium clash flex items-center ">
+                    <IoPerson className="inline mr-2 primary" />
+                    Leads
+                  </h2>
+                  <ul className="xl:text-base lg:text-sm text-xs font-light list-disc">
+                    <li className="my-2">Automatic text & email response</li>
+                    <li className="my-2">Appointment booking</li>
+                    <li className="my-2">Reminder & reschedule handling</li>
+                  </ul>
+                </div>
+              </div>
+              <div className="border border-zinc-800 rounded-3xl w-full h-full bento">
+                <div className="pl-7 pr-2 py-5">
+                  <h2 className="xl:text-3xl lg:text-2xl font-medium clash flex items-center">
+                    <FaClock className="inline mr-2 primary" />
+                    Time
+                  </h2>
+                  <ul className="xl:text-base lg:text-sm text-xs font-light list-disc">
+                    <li className="my-2">Call summaries & transcripts</li>
+                    <li className="my-2">Staff updates & scheduling</li>
+                  </ul>
+                </div>
+              </div>
+              <div className="border border-zinc-800 rounded-3xl w-full h-full bento">
+                <div className="pl-7 pr-2 py-5">
+                  <h2 className="xl:text-3xl lg:text-2xl font-medium clash flex items-center">
+                    <FaRedo className="inline mr-2 primary" />
+                    Retention
+                  </h2>
+                  <ul className="xl:text-base lg:text-sm text-xs font-light list-disc">
+                    <li className="my-2">Reactivation campaigns</li>
+                    <li className="my-2">Customer satisfaction checks</li>
+                    <li className="my-2">Post-service follow-ups</li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -231,7 +276,7 @@ function App() {
           overflow: "hidden",
           marginBottom: "10rem",
         }}
-        className="xl:mt-48"
+        className="mt-48"
       >
         <IconContext.Provider value={{ color: "white" }}>
           <LogoLoop
@@ -250,37 +295,33 @@ function App() {
         enableBlur={true}
         baseRotation={3}
         blurStrength={70}
-        containerClassName="text-white m-auto w-300 mb-[10rem]"
+        containerClassName="text-white m-auto xl:w-300 lg:w-250 md:w-185 mb-[10rem] md:text-2xl p-10 text-base"
       >
         We integrate with{" "}
-        <span className="primary-underline underline">
-          whatever platforms you use
-        </span>
-        . Whether you are a business who wants automations with salesforce or
-        hubspot, slack or gmail, or any other software not listed,{" "}
+        <span className="primary-underline underline">any platform</span>.
+        Whether you use Salesforce or Hubspot, Slack or Gmail, to name a few,{" "}
         <span className="primary-underline underline">we have you covered</span>
         .
       </ScrollReveal>
       <section
-        className="w-screen mb-[10rem] flex justify-center"
+        className="w-screen mb-[10rem] flex justify-center md:scroll-mt-50 scroll-mt-30 md:h-auto h-screen"
         ref={testimonialRef}
         id="testimonial"
       >
-        <div className="bg-zinc-950 text-white poppins xl:h-120 xl:flex xl:justify-center xl:gap-16 ">
-          <div className="xl:w-150 flex flex-col xl:justify-center text-9xl items-center">
-            {/* TODO: make image box not have extra space */}
-            <img src="asset.svg" width={250} alt="" />
-            <p className="text-white font-regular xl:text-lg text-center">
+        <div className="bg-zinc-950 text-white poppins md:h-120 md:flex md:justify-center md:gap-16 ">
+          <div className="xl:w-150 lg:w-110 md:w-85 flex flex-col lg:justify-center text-9xl items-center md:mb-0 mb-6">
+            <img src="GreenPaperProductsLogoCrop.svg" width={250} alt="" />
+            <p className="text-white font-regular md:text-lg text-center text-sm w-[250px] mt-4">
               Aaron Saks <br />
               <span className="text-zinc-300">CEO Green Paper Products</span>
             </p>
           </div>
-          <div className="xl:w-150 h-full xl:flex xl:justify-start xl:items-center">
+          <div className="xl:w-150 lg:w-110 md:w-85 h-full lg:flex lg:justify-start lg:items-center">
             <div>
-              <h2 className="xl:text-7xl xl:mb-6 underline primary-underline font-medium clash ">
+              <h2 className="lg:text-7xl md:text-6xl text-4xl mb-6 underline primary-underline font-medium clash md:text-start text-center">
                 Testimonial
               </h2>
-              <p className="text-white font-regular xl:text-lg/tight">
+              <p className="text-white font-regular lg:text-lg/tight md:text-start text-center md:p-0 px-10 text-sm mb-6">
                 NewLeafAI creates AI-powered automation that aim to eliminate
                 time consuming, annoying, and expensive tasks so you can stop
                 focusing on the small stuff and get back to what matters most -
@@ -296,37 +337,32 @@ function App() {
         </div>
       </section>
       <section
-        className="w-screen mb-[10rem] text-white flex justify-center "
+        className="w-screen mb-[15rem] text-white flex justify-center items-center md:scroll-mt-50 scroll-mt-30 md:h-auto h-1/2"
         ref={aboutRef}
         id="about"
       >
-        <div className="w-230 text-center">
-          <h2 className="xl:text-7xl xl:mb-6 underline primary-underline font-medium clash">
+        <div className="xl:w-230 lg:w-250 md:w-170 md:text-center">
+          <h2 className="lg:text-7xl md:text-6xl text-4xl mb-6 underline primary-underline font-medium clash text-center">
             About
           </h2>
-          <p className="text-2xl/relaxed">
-            NextLeafAI was started by sophomore Nathan Miller. Since he learned
-            to code in 5th grade, Nathan has always been passionate about
-            software engineering and development. In his early programming
-            years, he experimented with machine learning, but his AI interests
-            got sparked when he first used ChatGPT in 2021, and was amazed.
-            Since then, he has followed and learned what is possible with AI,
-            learning how to create complex automation for himself, and now for
-            others.
+          <p className="text-white m-auto xl:w-300 lg:w-250 md:w-185 md:text-2xl p-10 text-base leading-loose tracking-wider">
+            NextLeafAI is a Cleveland-based consultancy specializing in AI
+            automation. We work hand-in-hand with clients to create custom
+            integrated solutions.
           </p>
         </div>
       </section>
       <section
-        className="w-screen pb-[10rem] text-white flex justify-center "
+        className="w-screen pb-[10rem] text-white flex justify-center md:scroll-mt-40 scroll-mt-30 md:h-auto h-screen"
         ref={contactRef}
         id="contact"
       >
         <div className="w-100 text-center">
-          <h2 className="xl:text-7xl xl:mb-6 underline primary-underline font-medium clash">
+          <h2 className="lg:text-7xl md:text-6xl text-4xl md:mb-6 underline primary-underline font-medium clash">
             Contact
           </h2>
           <p className="text-lg italic m-6">Lets talk!</p>
-          <div className="grid gap-4">
+          <div className="grid gap-4 px-10">
             <InputGroup>
               <InputGroupInput placeholder="name" />
               <InputGroupAddon>
