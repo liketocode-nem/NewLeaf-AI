@@ -341,11 +341,11 @@ function App() {
         ref={aboutRef}
         id="about"
       >
-        <div className="xl:w-230 lg:w-250 md:w-170 md:text-center">
+        <div className="xl:w-230 lg:w-250 md:w-170 text-center flex flex-col items-center">
           <h2 className="lg:text-7xl md:text-6xl text-4xl mb-6 underline primary-underline font-medium clash text-center">
             About
           </h2>
-          <p className="text-white m-auto xl:w-300 lg:w-250 md:w-185 md:text-2xl p-10 text-base leading-loose tracking-wider">
+          <p className="text-white xl:w-300 lg:w-250 md:w-185 md:text-2xl p-10 text-base leading-loose tracking-wider text-center">
             NextLeafAI is a Cleveland-based consultancy specializing in AI
             automation. We work hand-in-hand with clients to create custom
             integrated solutions.
