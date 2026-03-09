@@ -1,7 +1,8 @@
 @import "tailwindcss";
 
 * {
-  --primary: #2be256;
+  /* --primary: #2be256; */
+  --primary: #58d5ff;
 }
 
 ::selection {
@@ -47,7 +48,7 @@ body {
 }
 
 .bento:hover {
-  box-shadow: 0 0 13px 2px #2be256; /* green glow */
+  box-shadow: 0 0 13px 2px var(--primary); /* green glow */
   transform: scale(1.03);
 }
 

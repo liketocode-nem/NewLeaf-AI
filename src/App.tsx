@@ -16,7 +16,6 @@ import {
   FaShopify,
   FaMailchimp,
   FaSlack,
-  FaClock,
 } from "react-icons/fa6";
 import { FaRedo } from "react-icons/fa";
 import { SiN8N, SiGooglecalendar, SiFirebase, SiGmail } from "react-icons/si";
@@ -25,16 +24,17 @@ import LogoLoop from "./components/LogoLoop";
 import { IconContext } from "react-icons";
 import ScrollReveal from "./components/ScrollReveal";
 import { IoPerson } from "react-icons/io5";
+import { IoMdCode } from "react-icons/io";
 
-import {
-  InputGroup,
-  InputGroupAddon,
-  InputGroupButton,
-  InputGroupInput,
-  InputGroupText,
-  InputGroupTextarea,
-} from "@/components/ui/input-group";
-import { Briefcase, MailIcon, User } from "lucide-react";
+// import {
+//   InputGroup,
+//   InputGroupAddon,
+//   InputGroupButton,
+//   InputGroupInput,
+//   InputGroupText,
+//   InputGroupTextarea,
+// } from "@/components/ui/input-group";
+// import { Briefcase, MailIcon, User } from "lucide-react";
 
 const techLogos = [
   { node: <FaSalesforce />, title: "Salesforce" },
@@ -56,15 +56,15 @@ function App() {
 
   const heroRef = useRef(null);
   const servicesRef = useRef(null);
-  const testimonialRef = useRef(null);
+  // const testimonialRef = useRef(null);
   const aboutRef = useRef(null);
   const contactRef = useRef(null);
 
   const heroView = useInView(heroRef, { amount: 0.5 });
   const servicesView = useInView(servicesRef, { amount: 0.5 });
-  const testimonialView = useInView(testimonialRef, { amount: 0.5 });
+  // const testimonialView = useInView(testimonialRef, { amount: 0.5 });
   const aboutView = useInView(aboutRef, { amount: 0.5 });
-  const contactView = useInView(contactRef, { amount: 0.5 });
+  const contactView = useInView(contactRef, { amount: 0.1 });
 
   const [activeSection, setActiveSection] = useState<string>("hero");
 
@@ -80,29 +80,31 @@ function App() {
   }, []);
 
   useEffect(() => {
-    if (heroView) {
+    if (contactView) {
+      setActiveSection("contact");
+    } else if (heroView) {
       setActiveSection("hero");
     } else if (servicesView) {
       setActiveSection("services");
-    } else if (testimonialView) {
-      setActiveSection("testimonial");
-    } else if (aboutView) {
-      setActiveSection("about");
-    } else if (contactView) {
-      setActiveSection("contact");
     }
-  }, [heroView, servicesView, testimonialView, aboutView, contactView]);
+    // else if (testimonialView) {
+    //   setActiveSection("testimonial");
+    // }
+    else if (aboutView) {
+      setActiveSection("about");
+    }
+  }, [heroView, servicesView, aboutView, contactView]);
 
   return (
     <>
       <ReactLenis root options={{ autoRaf: false }} ref={lenisRef} />
 
       <nav
-        className={`w-full xl:h-24 fixed left-0 flex justify-center items-center xl:p-10 p-5 z-50 clash`}
+        className={`w-full h-24 fixed left-0 flex justify-center items-center xl:p-10 p-5 z-50 clash`}
       >
-        <div className="py-4 px-5 xl:w-6/12 lg:w-7/12 md:w-8/12 w-full text-xs lg:text-xl md:text-base  sm:mt-6 text-white flex justify-between items-center font-black bg-white/10 rounded-4xl backdrop-blur-sm border border-white/35 shadow-lg">
+        <div className="py-4 px-5 xl:w-6/12 lg:w-6/12 md:w-7/12 sm:w-7/12 w-full text-xs lg:text-xl md:text-base  sm:mt-6 text-white flex justify-between items-center font-black bg-white/10 rounded-4xl backdrop-blur-sm border border-white/35 shadow-lg">
           <a href="#hero" className="xl:text-2xl mr-2">
-            NewLeaf/AI
+            Snowcat/AI
           </a>
           <div className="flex md:gap-8 gap-2">
             <a
@@ -115,7 +117,7 @@ function App() {
             >
               Services
             </a>
-            <a
+            {/* <a
               href="#testimonial"
               className={`font-normal ${
                 activeSection == "testimonial"
@@ -124,7 +126,7 @@ function App() {
               }`}
             >
               Testimonial
-            </a>
+            </a> */}
             <a
               href="#about"
               className={`font-normal ${
@@ -155,7 +157,7 @@ function App() {
         id="hero"
       >
         <Aurora
-          colorStops={["#8dfcbb", "#2be256", "#8dfcf3"]}
+          colorStops={["#3DF5FF", "#0db8e8", "#3DBEFF"]}
           blend={1}
           amplitude={0.6}
           speed={0.3}
@@ -170,12 +172,14 @@ function App() {
               <RotatingText
                 texts={[
                   "Automation",
-                  "Outreach",
                   "Efficiency",
-                  "Email",
+                  "Platforms",
+                  "Outreach",
                   "Workflow",
-                  "Support",
                   "Websites",
+                  "Systems",
+                  "Support",
+                  "Email",
                 ]}
                 mainClassName="px-2 sm:px-2 md:px-3  primary-bg text-white overflow-hidden py-0.5 sm:py-1 md:py-2 rounded-lg inline-flex items-center  flex justify-center"
                 staggerFrom={"last"}
@@ -203,10 +207,13 @@ function App() {
                 Services
               </h2>
               <p className="text-white font-regular lg:text-lg/tight md:text-start text-center ">
-                NewLeafAI creates AI-powered automation that helps eliminate
-                time-consuming, repetitive tasks so you can stop focusing on the
-                small stuff and get back to what matters most — growing your
-                business.
+                We partner with you to build custom AI solutions that eliminate
+                manual work, streamline operations, and drive growth.
+                <br />
+                <br />
+                <span className="italic">
+                  Tailored integrations that deliver real results
+                </span>
               </p>
             </div>
           </div>
@@ -221,9 +228,11 @@ function App() {
                     Chatbots
                   </h2>
                   <ul className="xl:text-base lg:text-sm text-xs font-light list-disc">
-                    <li className="my-2">Website chatbot to retain visitors</li>
                     <li className="my-2">
-                      Internal chatbot to assist employees
+                      Create AI chatbots for customer & internal support
+                    </li>
+                    <li className="my-2">
+                      Free up your team for strategic work
                     </li>
                   </ul>
                 </div>
@@ -235,21 +244,27 @@ function App() {
                     Leads
                   </h2>
                   <ul className="xl:text-base lg:text-sm text-xs font-light list-disc">
-                    <li className="my-2">Automatic text & email response</li>
-                    <li className="my-2">Appointment booking</li>
-                    <li className="my-2">Reminder & reschedule handling</li>
+                    <li className="my-2">
+                      Capture, nurture & schedule appointments automatically
+                    </li>
+                    <li className="my-2">Turn visitors into qualified leads</li>
                   </ul>
                 </div>
               </div>
               <div className="border border-zinc-800 rounded-3xl w-full h-full bento">
                 <div className="pl-7 pr-2 py-5">
                   <h2 className="xl:text-3xl lg:text-2xl font-medium clash flex items-center">
-                    <FaClock className="inline mr-2 primary" />
-                    Time
+                    <IoMdCode className="inline mr-2 primary" />
+                    App & Data
                   </h2>
                   <ul className="xl:text-base lg:text-sm text-xs font-light list-disc">
-                    <li className="my-2">Call summaries & transcripts</li>
-                    <li className="my-2">Staff updates & scheduling</li>
+                    <li className="my-2">
+                      Build & host custom AI apps and secure data servers
+                    </li>
+                    <li className="my-2">
+                      Connect your systems seamlessly for faster, error-free
+                      workflows
+                    </li>
                   </ul>
                 </div>
               </div>
@@ -260,9 +275,10 @@ function App() {
                     Retention
                   </h2>
                   <ul className="xl:text-base lg:text-sm text-xs font-light list-disc">
-                    <li className="my-2">Reactivation campaigns</li>
-                    <li className="my-2">Customer satisfaction checks</li>
-                    <li className="my-2">Post-service follow-ups</li>
+                    <li className="my-2">
+                      Automate post-sale check-ins & satisfaction surveys
+                    </li>
+                    <li className="my-2">Build loyalty and repeat business</li>
                   </ul>
                 </div>
               </div>
@@ -298,12 +314,12 @@ function App() {
         containerClassName="text-white m-auto xl:w-300 lg:w-250 md:w-185 mb-[10rem] md:text-2xl p-10 text-base"
       >
         We integrate with{" "}
-        <span className="primary-underline underline">any platform</span>.
-        Whether you use Salesforce or Hubspot, Slack or Gmail, to name a few,{" "}
+        <span className="primary-underline underline">any platform</span> and
+        create custom apps, so whatever solution you need,{" "}
         <span className="primary-underline underline">we have you covered</span>
         .
       </ScrollReveal>
-      <section
+      {/* <section
         className="w-screen mb-[10rem] flex justify-center md:scroll-mt-50 scroll-mt-30 md:h-auto h-screen"
         ref={testimonialRef}
         id="testimonial"
@@ -335,7 +351,7 @@ function App() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
       <section
         className="w-screen mb-[15rem] text-white flex justify-center items-center md:scroll-mt-50 scroll-mt-30 md:h-auto h-1/2"
         ref={aboutRef}
@@ -345,15 +361,15 @@ function App() {
           <h2 className="lg:text-7xl md:text-6xl text-4xl mb-6 underline primary-underline font-medium clash text-center">
             About
           </h2>
-          <p className="text-white xl:w-300 lg:w-250 md:w-185 md:text-2xl p-10 text-base leading-loose tracking-wider text-center">
-            NextLeafAI is a Cleveland-based consultancy specializing in AI
+          <p className="text-white xl:w-230 lg:w-250 md:w-185 md:text-2xl p-10 text-base leading-loose tracking-wider text-center">
+            SnowcatAI is a Cleveland-based consultancy specializing in AI
             automation. We work hand-in-hand with clients to create custom
             integrated solutions.
           </p>
         </div>
       </section>
       <section
-        className="w-screen pb-[10rem] text-white flex justify-center md:scroll-mt-40 scroll-mt-30 md:h-auto h-screen"
+        className="w-screen pb-[10rem] text-white flex justify-center md:scroll-mt-40 scroll-mt-30 h-auto"
         ref={contactRef}
         id="contact"
       >
@@ -361,9 +377,9 @@ function App() {
           <h2 className="lg:text-7xl md:text-6xl text-4xl md:mb-6 underline primary-underline font-medium clash">
             Contact
           </h2>
-          <p className="text-lg italic m-6">Lets talk!</p>
+          {/* <p className="text-lg italic m-6">Lets talk!</p> */}
           <div className="grid gap-4 px-10">
-            <InputGroup>
+            {/* <InputGroup>
               <InputGroupInput placeholder="name" />
               <InputGroupAddon>
                 <User />
@@ -392,11 +408,12 @@ function App() {
                   Send
                 </InputGroupButton>
               </InputGroupAddon>
-            </InputGroup>
-            <p className="text-start">
+            </InputGroup> */}
+            <p className="text-center">
               To:{" "}
-              <a href="mailto:nextleafai@gmail.com">
-                <span className="primary underline">nextleafai</span>@gmail.com
+              <a href="mailto:contactsnowcatai@gmail.com">
+                <span className="primary underline">contactSnowcatAI</span>
+                @gmail.com
               </a>
             </p>
           </div>
